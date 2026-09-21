@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: stub-app-service
@@ -7,9 +7,16 @@ metadata:
     app.kubernetes.io/name: stub-app-service
 spec:
   replicas: 2
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: stub-app-service
+  strategy:
+    blueGreen:
+      activeService: stub-app-service
+      previewService: stub-app-service-preview
+      autoPromotionEnabled: false
+      scaleDownDelaySeconds: 30
   template:
     metadata:
       labels:
