@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: stub-service
+      app: stub-service
   strategy:
     blueGreen:
       activeService: stub-service
@@ -21,6 +22,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: stub-service
+        app: stub-service
     spec:
       containers:
         - name: stub-app-service
