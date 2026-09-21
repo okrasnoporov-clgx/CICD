@@ -10,7 +10,7 @@ spec:
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app.kubernetes.io/name: stub-app-service
+      app.kubernetes.io/name: stub-service
   strategy:
     blueGreen:
       activeService: stub-service
