@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
         - name: stub-app-service
-          image: ghcr.io/okrasnoporov-clgx/stub-app-service:0.0.4
+          image: ghcr.io/okrasnoporov-clgx/stub-app-service:0.0.5
           imagePullPolicy: Always
           ports:
             - name: http
