@@ -5,7 +5,8 @@ metadata:
   namespace: qa
 spec:
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 8000
   selector:
     app: stub-service
