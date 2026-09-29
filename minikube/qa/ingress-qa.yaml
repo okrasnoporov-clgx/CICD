@@ -20,7 +20,7 @@ spec:
               service:
                 name: stub-service
                 port:
-                  number: 80
+                  name: http
 
           - path: /qa/stub-service-preview/?(.*)
             pathType: ImplementationSpecific
@@ -28,4 +28,4 @@ spec:
               service:
                 name: stub-service-preview
                 port:
-                  number: 80
+                  name: http
