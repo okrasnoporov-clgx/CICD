@@ -5,21 +5,23 @@ metadata:
   namespace: qa
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # Режижем префикс пути перед отправкой в сервис:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
-          - path: /qa/stub-service
-            pathType: Prefix
+          - path: /qa/stub-service(/|$)(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: stub-service
                 port:
                   name: http
 
-          - path: /qa/stub-service-preview
-            pathType: Prefix
+          - path: /qa/stub-service-preview(/|$)(.*)
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: stub-service-preview
