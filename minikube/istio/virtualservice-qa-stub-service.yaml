@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: qa-stub-service
+  namespace: qa
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - istio-system/qa-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /qa/stub-service/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: stub-service.qa.svc.cluster.local
+            port:
+              number: 80
+    - match:
+        - uri:
+            prefix: /qa/stub-service-preview/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: stub-service-preview.qa.svc.cluster.local
+            port:
+              number: 80
