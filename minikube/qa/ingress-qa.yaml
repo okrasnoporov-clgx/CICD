@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-qa
+  namespace: qa
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /qa/stub-service
+            pathType: Prefix
+            backend:
+              service:
+                name: stub-service
+                port:
+                  name: http
+
+          - path: /qa/stub-service-preview
+            pathType: Prefix
+            backend:
+              service:
+                name: stub-service-preview
+                port:
+                  name: http
