@@ -5,3 +5,4 @@ metadata:
 data:
   APP_NAME: "beta-local-test"
   APP_VERSION: "v.0.0.1"
+  SVC: "alpha-test-app.alpha.svc.cluster.local"
