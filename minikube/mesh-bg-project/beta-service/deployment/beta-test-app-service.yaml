@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: beta-test-app
+  labels:
+    app.kubernetes.io/name: beta-test-app
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: beta-test-app
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
