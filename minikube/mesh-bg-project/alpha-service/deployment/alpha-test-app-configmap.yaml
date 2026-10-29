@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alpha-test-app-config
+data:
+  APP_NAME: "alpha-local-test"
+  APP_VERSION: "v.0.0.1"

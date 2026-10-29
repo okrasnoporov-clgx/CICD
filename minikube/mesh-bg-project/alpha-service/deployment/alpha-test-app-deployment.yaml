@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alpha-test-app
+  labels:
+    app.kubernetes.io/name: alpha-test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: alpha-test-app
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: alpha-test-app
+    spec:
+      containers:
+        - name: alpha-test-app
+          image: ghcr.io/okrasnoporov-clgx/alpha-test-app:0.0.1
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: alpha-test-app-config
