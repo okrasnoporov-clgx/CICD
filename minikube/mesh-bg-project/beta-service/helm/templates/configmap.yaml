@@ -8,3 +8,4 @@ metadata:
 data:
   APP_NAME: {{ .Values.app.name | quote }}
   APP_VERSION: {{ .Values.app.version | quote }}
+  SVC: {{ .Values.app.svc | quote }}

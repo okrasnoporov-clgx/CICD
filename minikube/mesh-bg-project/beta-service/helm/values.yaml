@@ -10,6 +10,7 @@ image:
 app:
   name: beta-local-test
   version: v.0.0.1
+  svc: alpha-test-app.alpha.svc.cluster.local
 
 service:
   type: ClusterIP
